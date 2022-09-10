@@ -1,0 +1,2 @@
+maybe we should tick things like speed in the actual user class so the variables would be easier
+the above would make doing thr async math and then the sync appying the velocity more difficult

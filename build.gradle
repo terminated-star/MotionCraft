@@ -1,40 +1,47 @@
 plugins {
     id("java")
     id("java-library")
-    id("com.github.johnrengelman.shadow") version "7.1.2" // TODO see if we can use parenthesis here
-}
-
-group("plugin.motioncraft")
-version("1.0")
-
-repositories {
-    mavenCentral()
-
-    // Spigot
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
-    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
-
-    // Paper
-    maven { url = uri("https://repo.papermc.io/repository/maven-public/") }
-}
-
-dependencies {
-    // Spigot
-    //compileOnly('org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT')
-
-    // Paper
-    compileOnly("io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
-}
-
-shadowJar {
-    // Options
-    minimize()
-
-    // Relocations
+    id("com.github.johnrengelman.shadow") version "7.1.2" apply(false) // TODO see if we can use parenthesis here
 }
 
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
+
+subprojects {
+    apply plugin: "java"
+    apply plugin: "java-library"
+    apply plugin: "com.github.johnrengelman.shadow"
+
+    description(project.getName())
+    version("1.0.0")
+    group("plugin.motioncraft")
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        if (project.getName() != "core") {
+            api project(":core")
+        }
+    }
+
+    tasks {
+        build {
+            dependsOn(shadowJar)
+        }
+
+        shadowJar {
+            minimize()
+            archiveFileName.set("${rootProject.getName()}-${project.getName()}-${project.getVersion()}.${getArchiveExtension()}")
+        }
+
+        withType(JavaCompile) {
+            options.encoding = "UTF-8"
+        }
     }
 }

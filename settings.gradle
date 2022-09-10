@@ -1,4 +1,3 @@
-rootProject.name = 'MotionCraft'
-include ':core'
-include 'spigot'
-
+rootProject.setName("MotionCraft")
+include("core")
+include("spigot")
