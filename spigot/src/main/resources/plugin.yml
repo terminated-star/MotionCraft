@@ -1,0 +1,8 @@
+name: "MotionCraft"
+description: "Bhopping, as a Minecraft plugin."
+version: "1.0.0"
+
+database: false
+load: "POSTWORLD"
+api-version: "1.13"
+main: "plugin.motioncraft.spigot.Main"

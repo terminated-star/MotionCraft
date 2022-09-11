@@ -1,15 +1,16 @@
 plugins {
     id("java")
     id("java-library")
-    id("com.github.johnrengelman.shadow") version "7.1.2" apply(false) // TODO see if we can use parenthesis here
+    id("com.github.johnrengelman.shadow") version("7.1.2") apply(false)
 }
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(8))
+        //sourceCompatibility(JavaVersion.VERSION_17)
+        //targetCompatibility(JavaVersion.VERSION_1_8)
     }
 }
-
 
 subprojects {
     apply plugin: "java"
@@ -25,7 +26,7 @@ subprojects {
     }
 
     dependencies {
-        if (project.getName() != "core") {
+        if (project.getPath() != ":core") {
             api project(":core")
         }
     }

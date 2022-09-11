@@ -6,11 +6,11 @@ import java.util.List;
 public class UserManager {
 	private final List<CommonUser> users = new ArrayList<>();
 
-	public void addUser(CommonUser user) {
+	public void add(CommonUser user) {
 		getUsers().add(user);
 	}
 
-	public void removeUser(CommonUser user) {
+	public void remove(CommonUser user) {
 		getUsers().remove(user);
 	}
 

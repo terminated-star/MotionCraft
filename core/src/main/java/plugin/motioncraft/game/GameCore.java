@@ -1,15 +1,20 @@
 package plugin.motioncraft.game;
 
-public class GameCore {
-	public void onStart() {
+import plugin.motioncraft.MotionCraft;
+import plugin.motioncraft.event.Event;
+import plugin.motioncraft.event.EventListener;
 
+public class GameCore implements EventListener {
+	public void onStart() {
+		MotionCraft.getApi().getEventManager().register(new ListenerMain());
 	}
 
 	public void onStop() {
 
 	}
 
-	public void doTick() {
+	@Override
+	public void onEvent(Event eventBase) {
 
 	}
 }
