@@ -9,7 +9,10 @@ public interface PlatformAPI {
 
 	public boolean isSprinting(CommonUser user);
 	public boolean isSneaking(CommonUser user);
+	public boolean isOnGround(CommonUser user);
+	public boolean isInLiquid(CommonUser user);
 	public CommonVector getLookDirection(CommonUser user);
 	public CommonVector getVelocity(CommonUser user);
 	public void setVelocity(CommonUser user, CommonVector velocity);
+	public void sendActionBar(CommonUser user, String text);
 }

@@ -49,3 +49,5 @@ nbproject/
 
 # OS X
 .DS_Store
+
+# TODO: the gradle-wrapper.jar shouldn't be ignored

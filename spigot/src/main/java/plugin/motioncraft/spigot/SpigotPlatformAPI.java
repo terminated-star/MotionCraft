@@ -1,5 +1,7 @@
 package plugin.motioncraft.spigot;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
@@ -8,24 +10,22 @@ import plugin.motioncraft.common.Callback;
 import plugin.motioncraft.common.CommonVector;
 import plugin.motioncraft.user.CommonUser;
 
+import java.util.concurrent.*;
+
 public class SpigotPlatformAPI implements PlatformAPI {
 	public Player getPlayer(CommonUser user) {
-		// TODO: Use a callback for this to make sure it is synced
-		return Bukkit.getPlayer(user.getId());
+		return runSync(() -> Bukkit.getPlayer(user.getId()));
 	}
 
 	@Override
 	public <T> T runSync(Callback<T> callback) {
-		if (Bukkit.isPrimaryThread())
+		if (Bukkit.isPrimaryThread()) {
 			return callback.call();
-		else {
-			Bukkit.getScheduler().runTask(Main.getInstance(), new Runnable() {
-				@Override
-				public void run() {
-					callback.call();
-				}
-			});
-			return null; // TODO: Return the correct value
+		} else {
+			Future<T> future = Bukkit.getScheduler().callSyncMethod(Main.getInstance(), callback::call);
+			try {
+				return future.get();
+			} catch (java.lang.InterruptedException | ExecutionException e) { return null; }
 		}
 	}
 
@@ -46,25 +46,54 @@ public class SpigotPlatformAPI implements PlatformAPI {
 	}
 
 	@Override
+	public boolean isOnGround(CommonUser user) {
+		return runSync(() -> {
+			Player platformUser = getPlayer(user);
+			return platformUser.isOnGround();
+		});
+	}
+
+	@Override
+	public boolean isInLiquid(CommonUser user) {
+		return runSync(() -> {
+			Player platformUser = getPlayer(user);
+			return platformUser.getLocation().getBlock().isLiquid() || platformUser.getLocation().add(0, 1, 0).getBlock().isLiquid();
+		});
+	}
+
+	@Override
 	public CommonVector getLookDirection(CommonUser user) {
-		Player platformUser = getPlayer(user); // TODO: Move this inside the runSync
-		Vector platformVelocity = platformUser.getLocation().getDirection(); // TODO: Move this inside the runSync
-		return new CommonVector(platformVelocity.getX(), platformVelocity.getY(), platformVelocity.getZ());
+		return runSync(() -> {
+			Player platformUser = getPlayer(user);
+			Vector platformVelocity = platformUser.getLocation().getDirection();
+			return new CommonVector(platformVelocity.getX(), platformVelocity.getY(), platformVelocity.getZ());
+		});
 	}
 
 	@Override
 	public CommonVector getVelocity(CommonUser user) {
-		Player platformUser = getPlayer(user); // TODO: Move this inside the runSync
-		Vector platformVelocity = platformUser.getVelocity(); // TODO: Move this inside the runSync
-		return new CommonVector(platformVelocity.getX(), platformVelocity.getY(), platformVelocity.getZ());
+		return runSync(() -> {
+			Player platformUser = getPlayer(user);
+			Vector platformVelocity = platformUser.getVelocity();
+			return new CommonVector(platformVelocity.getX(), platformVelocity.getY(), platformVelocity.getZ()); // TODO: See if it would matter if we removed this from the runSync, the getters here aren't part of bukkit's api
+		});
 	}
 
 	@Override
 	public void setVelocity(CommonUser user, CommonVector velocity) {
-		runSync((Callback<Void>) () -> {
+		runSync(() -> {
 			Player platformUser = getPlayer(user);
 			Vector platformVelocity = new Vector(velocity.getX(), velocity.getY(), velocity.getZ());
 			platformUser.setVelocity(platformVelocity);
+			return null;
+		});
+	}
+
+	@Override
+	public void sendActionBar(CommonUser user, String text) {
+		runSync(() -> {
+			Player platformUser = getPlayer(user);
+			platformUser.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(text));
 			return null;
 		});
 	}

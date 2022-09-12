@@ -14,3 +14,7 @@ maybe we shouldn't use async on spigot as it waits until the next tick for start
 we could always just make the async tick event not actually be async if it turns out to be bad
 
 we should have our own "scheduler" that calls the bukkit scheduler, otherwise in bukkit if we called two events in a row, it would run two tasks
+
+add an option where if they stop moving for x ticks it will reset them
+
+Use kyori for things like messages
