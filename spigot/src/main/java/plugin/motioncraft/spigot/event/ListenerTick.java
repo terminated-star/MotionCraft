@@ -22,8 +22,8 @@ public class ListenerTick  {
 			}, 0L, 1L);
 		} else {
 			Bukkit.getServer().getScheduler().runTaskTimer(Main.getInstance(), () -> {
-				Event eventAsync = new EventTick(false); // We still send the async event so that any code that relies on
-				MotionCraft.getApi().getEventManager().post(eventAsync); // the event will still work, but it isn't actually async
+				Event eventAsync = new EventTick(false); // We still send the async event so that any code that relies on the event will still work, but it isn't actually async
+				MotionCraft.getApi().getEventManager().post(eventAsync);
 
 				Event eventSync = new EventTick(true);
 				MotionCraft.getApi().getEventManager().post(eventSync);
