@@ -27,7 +27,7 @@ I tested using the anti-cheats' default config. I only recommend using anti-chea
 
 #### Best compatibility
 
-**_Your anti-cheat here._** (Create an issue if your anti-cheat is compatible with this project, and I will list it here.)  
+**_Your anti-cheat here_** (Create an issue if your anti-cheat is compatible with this project, and I will list it here) 
 
 Matrix (Premium) - False flags Velocity, but with that check disabled it works quite well. The free version is untested.  
 
