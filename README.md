@@ -27,12 +27,12 @@ I tested using the anti-cheats' default config. I only recommend using anti-chea
 
 #### Best compatibility
 
-Matrix (Premium) - False flags Velocity, but with that check disabled it works quite well. The free version is untested.
-_Your anti-cheat here._ (Create an issue if your anti-cheat is compatible with this project, and I will list it here.)
+_Your anti-cheat here._ (Create an issue if your anti-cheat is compatible with this project, and I will list it here.)  
+Matrix (Premium) - False flags Velocity, but with that check disabled it works quite well. The free version is untested.  
 
 #### Decent compatibility
 
-AntiAura (V2) - Some checks disabled.
+AntiAura (V2) - Some checks disabled.  
 
 #### Low compatibility
 
