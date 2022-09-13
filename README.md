@@ -19,7 +19,7 @@ Currently, only available on servers that implement the Spigot API.
 
 To emulate custom physics, this project updates the player's velocity every tick. This creates an incompatibility with most anti-cheats. In the best case scenario with an incompatible anti-cheat, most checks won't function. In the worst case scenario, the anti-cheat will false flag players. You will most likely need to use an anti-cheat that had this project in mind.
 
-### Anti-cheat compatibility list
+### Compatibility list
 
 These tests were taken on Sep 12, 2022 on a 1.18.2 paper server and a 1.18.2 client.
 Only anti-cheats that have been updated this year were tested. I only tested the anti-cheats for speed and flight, since there are a lot.
