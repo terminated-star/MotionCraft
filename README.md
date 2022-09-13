@@ -21,27 +21,25 @@ To emulate custom physics, this project updates the player's velocity every tick
 
 ### Anti-cheat status
 
-These tests were taken on Sep 12, 2022 on a 1.18.2 paper server and a 1.18.2 client. Only anti-cheats that have been updated this year were tested.
-I only tested the anti-cheats for speed and flight, since there are a lot. I tested using the anti-cheats' default config.
-I would only recommend using anti-cheats in the `decent` section and above.
+These tests were taken on Sep 12, 2022 on a 1.18.2 paper server and a 1.18.2 client. Only anti-cheats that have been updated this year were tested. I only tested the anti-cheats for speed and flight, since there are a lot. I tested using the anti-cheats' default config. I would only recommend using anti-cheats in the `decent` section and above.
 
 #### Best compatibility
 
-Matrix (Premium) - Few checks disabled. The free version is untested.
+Matrix (Premium) - Few checks disabled. The free version is untested.  
 
 #### Decent compatibility
 
-AntiAura (V2) - Some checks disabled.
+AntiAura (V2) - Some checks disabled.  
 
 #### Low compatibility
 
-Spartan - Most checks disabled.
-Vulcan - Most checks disabled.
+Spartan - Most checks disabled.  
+Vulcan - Most checks disabled.  
 
 #### Worst compatibility
 
-Grim - False flags.
-Negativity (V1 & V2) - False flags.
-Themis - False flags.
-Wraith - False flags.
-NoCheatPlus - False flags.
+Grim - False flags.  
+Negativity (V1 & V2) - False flags.  
+Themis - False flags.  
+Wraith - False flags.  
+NoCheatPlus - False flags.  
