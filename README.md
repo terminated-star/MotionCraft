@@ -23,7 +23,7 @@ To emulate custom physics, this project updates the player's velocity every tick
 
 These tests were taken on Sep 12, 2022 on a 1.18.2 paper server and a 1.18.2 client.
 Only anti-cheats that have been updated this year were tested. I only tested the anti-cheats for speed and flight, since there are a lot.
-I tested using the anti-cheats' default config. I would only recommend using anti-cheats in the `decent` section and above.
+I tested using the anti-cheats' default config. I only recommend using anti-cheats in the `decent` section and above.
 
 #### Best compatibility
 
