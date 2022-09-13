@@ -15,7 +15,6 @@ public class Main extends JavaPlugin {
 		instance = this;
 
 		MotionCraft.getApi().setPlatformAPI(new SpigotPlatformAPI());
-
 		motionCraft.onEnable();
 
 		getServer().getPluginManager().registerEvents(new ListenerJoinQuit(), this);
@@ -25,7 +24,6 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onDisable() {
 		motionCraft.onDisable();
-
 		listenerTick.stop();
 	}
 
