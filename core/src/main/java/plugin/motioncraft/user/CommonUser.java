@@ -8,7 +8,7 @@ import java.util.UUID;
 public class CommonUser {
 	private final UUID id;
 	private double horizontalSpeed = 0;
-	private double verticalSpeed = 0;
+	private double verticalSpeed = 0; // TODO: this isn't speed, since -5 would be going down, that would technically be 5 speed
 	private int ticksOnGround = 0;
 	private int ticksInAir = 0;
 
@@ -26,6 +26,7 @@ public class CommonUser {
 		return horizontalSpeed;
 	}
 	public void setSpeed(double horizontalSpeed) {
+		if (horizontalSpeed < 0) return;
 		this.horizontalSpeed = horizontalSpeed;
 	}
 	public double getVerticalSpeed() {

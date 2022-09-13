@@ -7,11 +7,16 @@ import plugin.motioncraft.spigot.event.ListenerTick;
 
 public class Main extends JavaPlugin {
 	private static Main instance;
-	private ListenerTick listenerTick;
+	private final MotionCraft motionCraft = new MotionCraft();
+	private final ListenerTick listenerTick = new ListenerTick();
 
 	@Override
 	public void onEnable() {
+		instance = this;
+
 		MotionCraft.getApi().setPlatformAPI(new SpigotPlatformAPI());
+
+		motionCraft.onEnable();
 
 		getServer().getPluginManager().registerEvents(new ListenerJoinQuit(), this);
 		listenerTick.start();
@@ -19,6 +24,8 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
+		motionCraft.onDisable();
+
 		listenerTick.stop();
 	}
 

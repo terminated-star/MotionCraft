@@ -6,11 +6,14 @@ import plugin.motioncraft.user.UserHandler;
 
 public class MotionCraft {
 	private static final MotionCraftAPI api = new MotionCraftAPI();
+	private final GameCore gameCore = new GameCore();
 
 	// TODO: Maybe use an event manager for the on enable and on disable?
 	public void onEnable() {
 		getApi().getEventManager().register(new UserHandler());
-		getApi().getEventManager().register(new GameCore());
+
+		gameCore.onStart();
+		getApi().getEventManager().register(gameCore);
 	}
 
 	public void onDisable() {

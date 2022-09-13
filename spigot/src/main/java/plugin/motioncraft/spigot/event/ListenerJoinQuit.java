@@ -21,7 +21,7 @@ public class ListenerJoinQuit implements Listener {
 
 	@EventHandler
 	public void onQuit(PlayerQuitEvent platformEvent) {
-		CommonUser user = new CommonUser(platformEvent.getPlayer().getUniqueId());
+		CommonUser user = MotionCraft.getApi().getUserManager().getFromId(platformEvent.getPlayer().getUniqueId());
 		Event event = new EventQuit(user);
 		MotionCraft.getApi().getEventManager().post(event);
 	}

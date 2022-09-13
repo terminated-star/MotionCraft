@@ -18,3 +18,5 @@ we should have our own "scheduler" that calls the bukkit scheduler, otherwise in
 add an option where if they stop moving for x ticks it will reset them
 
 Use kyori for things like messages
+
+Make things like the user's speed thread-safe, since it can be accessed async

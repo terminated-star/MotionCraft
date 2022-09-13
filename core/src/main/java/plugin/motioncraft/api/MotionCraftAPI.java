@@ -1,5 +1,6 @@
 package plugin.motioncraft.api;
 
+import plugin.motioncraft.config.Config;
 import plugin.motioncraft.event.EventManager;
 import plugin.motioncraft.game.GameAPI;
 import plugin.motioncraft.user.UserManager;
@@ -8,6 +9,7 @@ public class MotionCraftAPI {
 	private final UserManager userManager = new UserManager();
 	private final EventManager eventManager = new EventManager();
 	private final GameAPI gameAPI = new GameAPI();
+	private final Config config = new Config();
 	private PlatformAPI platformAPI;
 
 	public UserManager getUserManager() {
@@ -18,6 +20,9 @@ public class MotionCraftAPI {
 	}
 	public GameAPI getGameAPI() {
 		return gameAPI;
+	}
+	public Config getConfig() {
+		return config;
 	}
 	public PlatformAPI getPlatformAPI() {
 		return platformAPI;
