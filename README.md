@@ -44,5 +44,5 @@ Grim - False flags.
 Negativity (V1 & V2) - False flags.  
 Themis - False flags.  
 Wraith - False flags.  
-NoCheatPlus - False flags.
-SoaromaSAC - False flags, or most/all checks disabled on more insensitive configs.
+NoCheatPlus - False flags.  
+SoaromaSAC - False flags, or most/all checks disabled on more insensitive configs.  
