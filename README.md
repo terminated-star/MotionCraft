@@ -29,7 +29,7 @@ I tested using the anti-cheats' default config. I only recommend using anti-chea
 
 **Your anti-cheat here:** Create an issue if your anti-cheat is compatible with this project, and I might list it here.
 
-Matrix (Premium) - False flags Velocity, but with that check disabled it works quite well. Starts to have more false flags when at a higher speed, so you should limit the speed to around 4,000 or lower. The free version is untested.  
+Matrix (Premium) - False flags Velocity (and Jesus for 1.8 players, and probably more versions), but with those checks disabled it works quite well. Starts to have more false flags when at a higher speed, so you should limit the speed to around 4,000 or lower. The free version is untested.  
 
 #### Decent compatibility
 
