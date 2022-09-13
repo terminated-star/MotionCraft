@@ -1,6 +1,7 @@
 # MotionCraft
 
 Bhopping, as a server-side Minecraft plugin/mod.
+Currently, not production-ready.
 
 ## Goals
 
