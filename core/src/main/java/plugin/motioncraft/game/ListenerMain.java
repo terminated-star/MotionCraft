@@ -55,7 +55,7 @@ public class ListenerMain implements EventListener {
 				user.setSpeed(user.getSpeed() + speedAdd);
 			}
 
-			if (user.isGroundAccelerationEnabled() || user.getTicksOnGround() < user.getSafeGroundTicks()) {
+			if (user.isGroundAccelerationEnabled() || user.getTicksOnGround() <= user.getSafeGroundTicks()) {
 				user.setSpeed(user.getSpeed() + 5);
 				/*if (accelMode.equals(AccelerationMode.FORWARD))
 					user.setSpeed(user.getSpeed() + 5);
@@ -68,7 +68,7 @@ public class ListenerMain implements EventListener {
 		}
 
 		// Deceleration
-		if (user.getTicksOnGround() >= user.getSafeGroundTicks()) {
+		if (user.getTicksOnGround() > user.getSafeGroundTicks()) {
 			//	if (playerData.isSneaking()) {
 			//		playerData.setSpeed(playerData.getSpeed() - 200);
 			//	}

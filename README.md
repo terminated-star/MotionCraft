@@ -6,6 +6,7 @@ Currently, not production-ready.
 ## Goals
 
 - Be compatible with versions from 1.8.8 to the latest.
+- Be compatible with multiple APIs. (Spigot, Minestom, and maybe Sponge, Fabric, and Forge.)
 - Be decently performant.
 - Be decently customizable.
 

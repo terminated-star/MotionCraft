@@ -47,7 +47,7 @@ public class CommonUser {
 		return false;
 	}
 	public int getSafeGroundTicks() {
-		return 2;
+		return 1;
 	}
 
 	public boolean isSprintingNormally() {

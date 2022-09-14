@@ -22,3 +22,5 @@ Use kyori for things like messages
 Make things like the user's speed thread-safe, since it can be accessed async
 
 don't have a built in score board, (or at least have it optional), they should use placeholders with an existing scoreboard plugin instead
+
+test this anticheat: https://www.spigotmc.org/resources/anticheat.93504/
