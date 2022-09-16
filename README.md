@@ -16,6 +16,6 @@ MotionCraft will always be free and open source.
 
 Currently, only available on servers that implement the Paper API.
 
-## Anti-cheat status
+## Anti-cheat Status
 
 See [this wiki page.](https://github.com/terminated-star/MotionCraft/wiki/Anti-cheat-Guide)
