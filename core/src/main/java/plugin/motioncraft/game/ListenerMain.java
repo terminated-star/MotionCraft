@@ -11,7 +11,8 @@ import plugin.motioncraft.user.CommonUser;
 public class ListenerMain implements EventListener {
 	@Override
 	public void onEvent(Event eventBase) {
-		if (eventBase instanceof EventTick event) {
+		if (eventBase instanceof EventTick) {
+			EventTick event = (EventTick) eventBase;
 			/*if (!event.isSynced()) {
 				// Calculations
 			} else {
@@ -23,7 +24,8 @@ public class ListenerMain implements EventListener {
 					doTick(user);
 				}
 			}
-		} else if (eventBase instanceof EventJump event) {
+		} else if (eventBase instanceof EventJump) {
+			EventJump event = (EventJump) eventBase;
 			CommonUser user = event.getUser();
 
 			//user.ticksSinceJump = -1;

@@ -19,7 +19,7 @@ public class Main extends JavaPlugin {
 		motionCraft.onEnable();
 
 		getServer().getPluginManager().registerEvents(new ListenerJoinQuit(), this);
-		getServer().getPluginManager().registerEvents(new ListenerJumpPaper(), this);
+		//getServer().getPluginManager().registerEvents(new ListenerJumpPaper(), this);
 		listenerTick.start();
 	}
 
