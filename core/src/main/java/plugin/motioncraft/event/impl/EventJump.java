@@ -1,8 +1,9 @@
 package plugin.motioncraft.event.impl;
 
+import plugin.motioncraft.event.Event;
 import plugin.motioncraft.user.CommonUser;
 
-public class EventJump {
+public class EventJump extends Event {
 	private final CommonUser user;
 
 	public EventJump(CommonUser user) {

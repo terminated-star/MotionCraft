@@ -4,6 +4,7 @@ import plugin.motioncraft.MotionCraft;
 import plugin.motioncraft.common.CommonVector;
 import plugin.motioncraft.event.Event;
 import plugin.motioncraft.event.EventListener;
+import plugin.motioncraft.event.impl.EventJump;
 import plugin.motioncraft.event.impl.EventTick;
 import plugin.motioncraft.user.CommonUser;
 
@@ -22,6 +23,20 @@ public class ListenerMain implements EventListener {
 					doTick(user);
 				}
 			}
+		} else if (eventBase instanceof EventJump event) {
+			CommonUser user = event.getUser();
+
+			//user.ticksSinceJump = -1;
+
+			user.setVerticalSpeed(0.2);
+
+			// Testing start
+			//playerData.ticksInAir = 0;
+			// Testing end
+
+			//if (jumpFixMode.equals(JumpFixMode.CANCEL)) {
+			//	event.setCancelled(true);
+			//}
 		}
 	}
 

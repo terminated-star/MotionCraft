@@ -4,7 +4,7 @@ repositories {
     maven { url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
 
     // Paper
-    //maven { url "https://repo.papermc.io/repository/maven-public/" }
+    maven { url "https://repo.papermc.io/repository/maven-public/" }
 }
 
 dependencies {
@@ -12,5 +12,5 @@ dependencies {
     compileOnly("org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT")
 
     // Paper
-    //compileOnly("io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
 }

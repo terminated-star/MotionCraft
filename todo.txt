@@ -1,26 +1,33 @@
-maybe we should tick things like speed in the actual user class so the variables would be easier
-the above would make doing thr async math and then the sync applying the velocity more difficult
-
-make an event manager
-
 give them night vision
 give them levitation
 
-2 events for tick, one for sync and one for async
-
-when calling stuff on spigot, make sure we are on the main thread (with Bukkit.isPrimaryThread() ), if not then do runTask or callSyncMethod
-
-maybe we shouldn't use async on spigot as it waits until the next tick for starting a new task
-we could always just make the async tick event not actually be async if it turns out to be bad
-
-we should have our own "scheduler" that calls the bukkit scheduler, otherwise in bukkit if we called two events in a row, it would run two tasks
-
-add an option where if they stop moving for x ticks it will reset them
+add an option where if they stop moving for x ticks it will reset them to the start of the map
 
 Use kyori for things like messages
 
 Make things like the user's speed thread-safe, since it can be accessed async
 
-don't have a built in score board, (or at least have it optional), they should use placeholders with an existing scoreboard plugin instead
+don't have a built-in score board, (or at least have it optional), they should use placeholders with an existing scoreboard plugin instead
 
-test this anticheat: https://www.spigotmc.org/resources/anticheat.93504/
+create a guide for each anti-cheat on which checks to disable to get it to stop false flagging.
+see how well matrix free version works
+
+add support for jump detection on spigot:
+Uses velocity: https://bukkit.org/threads/detect-player-jump.445415/
+Uses statistics: https://www.spigotmc.org/threads/accurate-playerjumpevent-do-actions-when-players-jump.138946/
+Possibly a better statistic way, uses onPlayerStatisticIncrement: https://www.spigotmc.org/threads/playerjumpevent.334128/
+Another way with velocity: https://medium.com/@enjikaka/detecting-a-jump-on-minecraft-server-with-bukkit-or-spigot-817ac106142f
+add all of these as jump algorithms
+
+We can create this event inside the core, as it is not api specific (minus paper's jump event)
+
+Detect paper: https://www.spigotmc.org/threads/how-do-i-detect-if-a-server-is-running-paper.499064/
+
+config example:
+
+jump-detection-mode = "AUTO" or "MANUAL" or "PAPER"
+jump-detection-manual-mode = "AUTO" or "VELOCITY" or "STATISTICS"
+
+make an option where players who are not x blocks from spawn are not visible
+
+don't use ticks for things like safe ground ticks, use time instead

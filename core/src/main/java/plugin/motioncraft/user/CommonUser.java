@@ -90,4 +90,8 @@ public class CommonUser {
 	public void setTicksInAir(int ticksInAir) {
 		this.ticksInAir = ticksInAir;
 	}
+
+	public boolean isPlaying() {
+		return true;
+	}
 }

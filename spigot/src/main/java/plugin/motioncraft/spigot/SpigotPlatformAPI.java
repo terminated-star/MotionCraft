@@ -91,6 +91,7 @@ public class SpigotPlatformAPI implements PlatformAPI {
 
 	@Override
 	public void sendActionBar(CommonUser user, String text) {
+		if (Main.getInstance().getServer().getVersion().contains("(MC: 1.8")) return; // TODO: Support action bars on older servers, they don't support the way we are doing it below
 		runSync(() -> {
 			Player platformUser = getPlayer(user);
 			platformUser.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(text));
