@@ -56,6 +56,7 @@ public class ListenerMain implements EventListener {
 
 		user.setVelocity(velocity);
 
+		// TODO String.format uses quite a bit of resources, switch to something else
 		String speedDisplay = String.format("%,.0f", Math.ceil(user.getSpeed()));
 		user.sendActionBar(speedDisplay);
 	}

@@ -74,6 +74,9 @@ public class CommonUser {
 	public void setVelocity(CommonVector velocity) {
 		MotionCraft.getApi().getPlatformAPI().setVelocity(this, velocity);
 	}
+	public void sendMessage(String text) {
+		MotionCraft.getApi().getPlatformAPI().sendMessage(this, text);
+	}
 	public void sendActionBar(String text) {
 		MotionCraft.getApi().getPlatformAPI().sendActionBar(this, text);
 	}

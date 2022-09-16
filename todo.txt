@@ -31,3 +31,11 @@ jump-detection-manual-mode = "AUTO" or "VELOCITY" or "STATISTICS"
 make an option where players who are not x blocks from spawn are not visible
 
 don't use ticks for things like safe ground ticks, use time instead
+
+using the paper api requires us to use a newer java version...
+
+make this plugin thread safe (speed, ticks on ground, etc.)
+
+add support for craft bukkit, the spigot api should override the bukkit api
+
+see what ticks on ground, etc. is every tick, it seems bugged

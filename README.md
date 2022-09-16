@@ -6,7 +6,7 @@ Currently, not production-ready.
 ## Goals
 
 - Be compatible with versions from 1.8.8 to the latest.
-- Be compatible with the oldest LTS version of java [with support](https://endoflife.date/java/).
+- Be compatible with the oldest LTS release of java [with support](https://endoflife.date/java/). (Currently Java 8)
 - Be compatible with multiple APIs. (Spigot, Minestom, and maybe Sponge, Fabric, and Forge.)
 - Be decently performant.
 
@@ -14,7 +14,7 @@ MotionCraft will always be free and open source.
 
 ## Current State
 
-Currently, only available on servers that implement the Paper API.
+Currently, only available on servers that implement the Spigot API.
 
 ## Anti-cheat Status
 

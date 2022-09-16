@@ -14,5 +14,6 @@ public interface PlatformAPI {
 	public CommonVector getLookDirection(CommonUser user);
 	public CommonVector getVelocity(CommonUser user);
 	public void setVelocity(CommonUser user, CommonVector velocity);
+	public void sendMessage(CommonUser user, String text);
 	public void sendActionBar(CommonUser user, String text);
 }
