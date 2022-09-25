@@ -13,10 +13,11 @@ public class EventManager {
 		getListeners().remove(listener);
 	}
 
-	public void post(Event event) {
+	public boolean post(Event event) {
 		for (EventListener eventListener : getListeners()) {
 			eventListener.onEvent(event);
 		}
+		return event.isCancelled();
 	}
 
 	private List<EventListener> getListeners() {

@@ -3,10 +3,13 @@ package plugin.motioncraft.spigot;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 import plugin.motioncraft.api.PlatformAPI;
 import plugin.motioncraft.common.Callback;
+import plugin.motioncraft.common.CommonLocation;
 import plugin.motioncraft.common.CommonVector;
 import plugin.motioncraft.user.CommonUser;
 
@@ -30,6 +33,14 @@ public class SpigotPlatformAPI implements PlatformAPI {
 	}
 
 	@Override
+	public String getName(CommonUser user) {
+		return runSync(() -> {
+			Player platformUser = getPlayer(user);
+			return platformUser.getName();
+		});
+	}
+
+	@Override
 	public boolean isSprinting(CommonUser user) {
 		return runSync(() -> {
 			Player platformUser = getPlayer(user);
@@ -46,6 +57,14 @@ public class SpigotPlatformAPI implements PlatformAPI {
 	}
 
 	@Override
+	public boolean isRiding(CommonUser user) {
+		return runSync(() -> {
+			Player platformUser = getPlayer(user);
+			return platformUser.isInsideVehicle();
+		});
+	}
+
+	@Override
 	public boolean isOnGround(CommonUser user) {
 		return runSync(() -> {
 			Player platformUser = getPlayer(user);
@@ -58,6 +77,24 @@ public class SpigotPlatformAPI implements PlatformAPI {
 		return runSync(() -> {
 			Player platformUser = getPlayer(user);
 			return platformUser.getLocation().getBlock().isLiquid() || platformUser.getLocation().add(0, 1, 0).getBlock().isLiquid();
+		});
+	}
+
+	@Override
+	public CommonLocation getLocation(CommonUser user) {
+		return runSync(() -> {
+			Player platformUser = getPlayer(user);
+			Location platformLocation = platformUser.getLocation();
+			return new CommonLocation(platformLocation.getX(), platformLocation.getY(), platformLocation.getZ());
+		});
+	}
+
+	@Override
+	public void setLocation(CommonUser user, CommonLocation location) {
+		runSync(() -> {
+			Player platformUser = getPlayer(user);
+			Location platformLocation = new Location(platformUser.getWorld(), location.getX(), location.getY(), location.getZ());
+			return null;
 		});
 	}
 
@@ -105,6 +142,14 @@ public class SpigotPlatformAPI implements PlatformAPI {
 			Player platformUser = getPlayer(user);
 			platformUser.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(text));
 			return null;
+		});
+	}
+
+	@Override
+	public boolean canPlay(CommonUser user) {
+		return runSync(() -> {
+			Player platformUser = getPlayer(user);
+			return !platformUser.isFlying() && platformUser.getGameMode() != GameMode.CREATIVE;
 		});
 	}
 }

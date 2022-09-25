@@ -13,6 +13,7 @@ public class ListenerTick  {
 				Event eventAsync = new EventTick(false);
 				MotionCraft.getApi().getEventManager().post(eventAsync);
 
+				// TODO: The runTask waits until the next tick, by that time another async event might have run
 				// We call this in here so we can be sure that the sync task is always run after the async one
 				Bukkit.getServer().getScheduler().runTask(Main.getInstance(), () -> {
 					Event eventSync = new EventTick(true);

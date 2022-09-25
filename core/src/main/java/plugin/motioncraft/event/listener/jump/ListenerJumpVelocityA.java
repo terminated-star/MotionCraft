@@ -1,4 +1,4 @@
-package plugin.motioncraft.event.listener;
+package plugin.motioncraft.event.listener.jump;
 
 import plugin.motioncraft.MotionCraft;
 import plugin.motioncraft.event.Event;
@@ -7,7 +7,7 @@ import plugin.motioncraft.event.impl.EventJump;
 import plugin.motioncraft.event.impl.EventTick;
 import plugin.motioncraft.user.CommonUser;
 
-public class ListenerJump implements EventListener {
+public class ListenerJumpVelocityA implements EventListener {
 	// TODO: Detect if in a liquid
 	// TODO: Make this better
 
@@ -18,7 +18,6 @@ public class ListenerJump implements EventListener {
 
 			if (event.isSynced()) {
 				for (CommonUser user : MotionCraft.getApi().getUserManager().getUsers()) {
-					//user.sendMessage("Velocity Y: " + user.getVelocity().getY());
 					if (user.getVelocity().getY() == -0.03) {
 						EventJump eventJump = new EventJump(user);
 						MotionCraft.getApi().getEventManager().post(eventJump);

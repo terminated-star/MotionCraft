@@ -1,8 +1,9 @@
 package plugin.motioncraft;
 
 import plugin.motioncraft.api.MotionCraftAPI;
-import plugin.motioncraft.event.listener.ListenerJump;
+import plugin.motioncraft.event.listener.jump.ListenerJumpVelocityA;
 import plugin.motioncraft.game.GameCore;
+import plugin.motioncraft.game.ListenerMisc;
 import plugin.motioncraft.user.UserHandler;
 
 public class MotionCraft {
@@ -15,7 +16,8 @@ public class MotionCraft {
 
 		gameCore.onStart();
 		getApi().getEventManager().register(gameCore);
-		getApi().getEventManager().register(new ListenerJump());
+		getApi().getEventManager().register(new ListenerMisc());
+		getApi().getEventManager().register(new ListenerJumpVelocityA());
 	}
 
 	public void onDisable() {
